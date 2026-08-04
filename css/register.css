@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.register-container{
+    background:white;
+    width:400px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.register-container h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#0d6efd;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+textarea{
+    resize:none;
+    height:100px;
+}
+
+input[type="submit"]{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+input[type="submit"]:hover{
+    background:#084298;
+}
+
+p{
+    margin-top:15px;
+    text-align:center;
+}
+
+#technicianFields{
+    display:none;
+}
+
+@media(max-width:500px){
+
+.register-container{
+    width:90%;
+}
+
+}
