@@ -77,96 +77,86 @@ if(isset($_POST["register"])){
 
 <!DOCTYPE html>
 <html>
-<head>
+        <head>
 
-<meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register | SIPALU</title>
+            <link rel="stylesheet" href="css/register.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
 
-<title>Register | SIPALU</title>
+        <body>
+        <div class="register-container">
+            <h2>Create Your Account</h2>
 
-<link rel="stylesheet" href="css/register.css">
+        <form method="POST">
+        <label>Register As</label>
+        <select name="role" id="role">
+        <option value="client">Client</option>
+        <option value="technician">Technician</option>
+        </select>
 
-</head>
+        <input
+        type="text"
+        name="fullname"
+        placeholder="Full Name"
+        required>
 
-<body>
+        <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        required>
 
-<div class="register-container">
+        <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required>
 
-<h2>Create Your Account</h2>
+        <input
+        type="text"
+        name="phone"
+        placeholder="Phone Number"
+        required>
 
-<form method="POST">
+        <input
+        type="text"
+        name="address"
+        placeholder="Address"
+        required>
 
-<label>Register As</label>
+        <div id="technician-fields" style="display:none;">
 
-<select name="role" id="role">
+        <input
+        type="text"
+        name="skill"
+        placeholder="Skill">
 
-<option value="client">Client</option>
+        <input
+        type="number"
+        name="experience"
+        placeholder="Years of Experience">
 
-<option value="technician">Technician</option>
+        <textarea
+        name="description"
+        placeholder="Describe your experience"></textarea>
 
-</select>
+        </div>
 
-<input
-type="text"
-name="fullname"
-placeholder="Full Name"
-required>
+        <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required>
 
-<input
-type="text"
-name="username"
-placeholder="Username"
-required>
+        <input
+        type="submit"
+        name="register"
+        value="Register">
 
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required>
-
-<input
-type="text"
-name="phone"
-placeholder="Phone Number"
-required>
-
-<input
-type="text"
-name="address"
-placeholder="Address"
-required>
-
-<div id="technician-fields" style="display:none;">
-
-<input
-type="text"
-name="skill"
-placeholder="Skill">
-
-<input
-type="number"
-name="experience"
-placeholder="Years of Experience">
-
-<textarea
-name="description"
-placeholder="Describe your experience"></textarea>
-
-</div>
-
-<input
-type="password"
-name="password"
-placeholder="Password"
-required>
-
-<input
-type="submit"
-name="register"
-value="Register">
-
-</form>
+        </form>
 
 <p>
 

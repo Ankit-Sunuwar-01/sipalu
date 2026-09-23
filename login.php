@@ -51,44 +51,55 @@ if(isset($_POST["login"])){
 
     echo "<script>alert('Invalid Username or Password');</script>";
 }
+
+$sql = "SELECT * FROM admin WHERE username=?";
+$stmt = mysqli_prepare($conn,$sql);
+
+mysqli_stmt_bind_param($stmt,"s",$username);
+
+mysqli_stmt_execute($stmt);
+
+$result = mysqli_stmt_get_result($stmt);
+
+if(mysqli_num_rows($result)>0){
+
+    $row = mysqli_fetch_assoc($result);
+
+    if(password_verify($password,$row["password"])){
+
+        $_SESSION["admin_id"] = $row["id"];
+        $_SESSION["admin_username"] = $row["username"];
+
+        header("Location: admin/dashboard.php");
+        exit();
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+    <body>
+        <div class="login-box">
+            <h2>Login</h2>
+            <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" name="login" value="Login">
+            </form>
 
-<title>Login</title>
+        <p>Don't have an account?
+        <a href="register.php">Register</a>
+        </p>
+        </div>
 
-<link rel="stylesheet" href="css/login.css">
-
-</head>
-
-<body>
-
-<div class="login-box">
-
-<h2>Login</h2>
-
-<form method="POST">
-
-<input type="text" name="username" placeholder="Username" required>
-
-<input type="password" name="password" placeholder="Password" required>
-
-<input type="submit" name="login" value="Login">
-
-</form>
-
-<p>
-Don't have an account?
-<a href="register.php">Register</a>
-</p>
-
-</div>
-
-</body>
+    </body>
 </html>
